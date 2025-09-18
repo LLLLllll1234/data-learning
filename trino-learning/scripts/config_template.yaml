@@ -1,0 +1,52 @@
+# Trino Performance Analyzer Configuration Template
+# 复制此文件为 config.yaml 并根据实际环境调整配置
+
+# Trino连接配置
+trino:
+  host: localhost                    # Trino coordinator主机
+  port: 8080                        # Trino coordinator端口
+  user: admin                       # 用户名
+  catalog: system                   # 默认catalog
+  schema: runtime                   # 默认schema
+  # username: your_username         # 如果启用了认证，取消注释并设置
+  # password: your_password         # 如果启用了认证，取消注释并设置
+
+# 分析参数配置
+analysis:
+  slow_query_threshold: 300         # 慢查询阈值(秒)，超过此时间的查询被认为是慢查询
+  memory_threshold_gb: 10           # 内存使用阈值(GB)，超过此值会产生建议
+  queue_time_threshold: 30          # 排队时间阈值(秒)，超过此值被认为有排队问题
+  failure_rate_threshold: 0.05      # 失败率阈值，超过5%会产生告警
+
+# 报告配置
+reporting:
+  output_dir: ./reports             # 报告输出目录
+  days_lookback: 7                  # 默认分析回溯天数
+  
+# 监控配置 (可选)
+monitoring:
+  enabled: false                    # 是否启用持续监控
+  check_interval_minutes: 15        # 监控检查间隔(分钟)
+  alert_thresholds:
+    failure_rate: 0.1              # 告警失败率阈值
+    avg_queue_time: 60             # 告警平均排队时间(秒)
+    memory_usage_gb: 20            # 告警内存使用阈值(GB)
+
+# 邮件通知配置 (可选)
+notifications:
+  enabled: false                    # 是否启用邮件通知
+  smtp:
+    host: smtp.example.com
+    port: 587
+    username: alerts@example.com
+    password: your_smtp_password
+    use_tls: true
+  recipients:
+    - admin@example.com
+    - ops@example.com
+
+# 优化建议配置
+recommendations:
+  auto_analyze_threshold: 0.8       # 自动ANALYZE建议阈值，统计信息健康度低于80%时建议
+  broadcast_threshold_mb: 100       # 广播Join阈值建议(MB)
+  partition_recommendation: true    # 是否启用分区优化建议

@@ -1,0 +1,23 @@
+# Trino Performance Analyzer Dependencies
+# 安装命令: pip install -r requirements.txt
+
+# Trino数据库连接
+trino==0.324.0
+
+# 数据处理和分析
+pandas==2.0.3
+numpy==1.24.3
+
+# 可视化和报告
+plotly==5.15.0
+kaleido==0.2.1
+
+# 配置文件处理
+PyYAML==6.0
+
+# 邮件通知 (可选)
+smtplib==0.0.0  # Python内置模块
+email-validator==2.0.0
+
+# 日志和工具
+python-dateutil==2.8.2
