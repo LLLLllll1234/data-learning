@@ -126,9 +126,8 @@
 
 如有问题或建议，请通过以下方式联系：
 
-- 邮箱：your-email@example.com
-- GitHub：https://github.com/your-username
-- 技术博客：https://your-blog.com
+- 邮箱：383627698@qq.com
+- GitHub：https://github.com/LLLLllll1234
 
 ---
 
